@@ -1,13 +1,12 @@
 <template>
-  <div class="about">
+  <div class="container">
     <h2>Hakkında</h2>
-    <p>Casino X, en iyi casino oyunlarını sunmak için burada!</p>
+    <p>Casino X, en iyi casino oyunlarını sunan bir platformdur. Müşteri memnuniyeti bizim için en önceliklidir.</p>
   </div>
 </template>
 
 <style scoped>
-.about {
+.container {
   text-align: center;
-  padding: 50px 0;
 }
 </style>
