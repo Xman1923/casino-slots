@@ -1,4 +1,6 @@
 {
+  "name": "casino-website",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,10 +10,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "dependencies": {
+    "vue": "^3.3.8",
+    "vue-router": "^4.2.5"
+  },
   "devDependencies": {
     "@nuxt/devtools": "^1.0.3",
     "nuxt": "^3.8.2",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "vuex": "^4.0.0"
   }
 }
