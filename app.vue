@@ -57,6 +57,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -66,6 +67,8 @@ export default {
 
 .nav {
   display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
 }
 
 .nav-links {
@@ -91,7 +94,7 @@ export default {
 .main-content {
   flex: 1;
   padding: 20px;
-  background: linear-gradient(135deg, #eaeaea, #ffffff);
+  background: #ffffff;
 }
 
 .footer {
