@@ -1,28 +1,43 @@
 <template>
-  <div class="homepage">
-    <h2>Hoş Geldiniz!</h2>
-    <p>En iyi casino deneyimini yaşamak için buradayız.</p>
-    <NuxtLink to="/games" class="cta-button">Oyunlara Göz Atın</NuxtLink>
+  <div class="container">
+    <h2>Ana Sayfa</h2>
+    <p>Casino X'e hoş geldiniz! Eğlenceli oyunlar keşfedin.</p>
+    <div class="featured-games">
+      <h3>Öne Çıkan Oyunlar</h3>
+      <div class="games-list">
+        <GameCard v-for="game in featuredGames" :key="game.id" :game="game" />
+      </div>
+    </div>
   </div>
 </template>
 
+<script>
+import GameCard from '~/components/GameCard.vue';
+
+export default {
+  components: {
+    GameCard,
+  },
+  data() {
+    return {
+      featuredGames: [
+        { id: 1, name: 'Blackjack', description: 'Klasik blackjack oyunu.', image: '/images/blackjack.jpg' },
+        { id: 2, name: 'Rulet', description: 'Şansınıza güvenin! Rulet oynayın.', image: '/images/roulette.jpg' },
+        { id: 3, name: 'Poker', description: 'Rakiplerinizi yenin ve kazanın.', image: '/images/poker.jpg' },
+      ],
+    };
+  },
+}
+</script>
+
 <style scoped>
-.homepage {
-  text-align: center;
-  padding: 50px 0;
+.featured-games {
+  margin-top: 20px;
 }
 
-.cta-button {
-  background-color: #ffcc00;
-  padding: 15px 30px;
-  border-radius: 5px;
-  color: #0c0c0c;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #e6b800;
+.games-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 </style>
