@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <header>
-      <h1>Casino Web Sitesi</h1>
-      <nav>
-        <ul>
+  <div class="app-container">
+    <header class="header">
+      <h1 class="logo">Casino X</h1>
+      <nav class="nav">
+        <ul class="nav-links">
           <li><NuxtLink to="/">Ana Sayfa</NuxtLink></li>
           <li><NuxtLink to="/games">Oyunlar</NuxtLink></li>
           <li><NuxtLink to="/about">Hakkında</NuxtLink></li>
@@ -11,12 +11,12 @@
       </nav>
     </header>
 
-    <main>
+    <main class="main-content">
       <NuxtPage />
     </main>
 
-    <footer>
-      <p>© 2024 Casino Web Sitesi. Tüm Hakları Saklıdır.</p>
+    <footer class="footer">
+      <p>© 2024 Casino X. Tüm Hakları Saklıdır.</p>
     </footer>
   </div>
 </template>
@@ -25,7 +25,7 @@
 export default {
   head() {
     return {
-      title: 'Casino Web Sitesi',
+      title: 'Casino X',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -37,35 +37,67 @@ export default {
 </script>
 
 <style scoped>
-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
-
-nav ul {
-  list-style-type: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
+  font-family: 'Arial', sans-serif;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 15px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-nav ul li a {
+.header {
+  background-color: #0c0c0c;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-footer {
+.nav-links li a:hover {
+  color: #ffcc00;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: linear-gradient(135deg, #eaeaea, #ffffff);
+}
+
+.footer {
+  background-color: #0c0c0c;
+  color: white;
   text-align: center;
   padding: 10px;
-  background-color: #282c34;
-  color: white;
-  position: absolute;
-  width: 100%;
-  bottom: 0;
 }
 </style>
