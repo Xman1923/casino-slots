@@ -2,7 +2,11 @@
   <div class="app-container">
     <header class="header">
       <h1 class="logo">Casino X</h1>
-      <nav class="nav">
+      <button @click="toggleMenu" class="menu-toggle">
+        <span v-if="!menuOpen">☰</span>
+        <span v-if="menuOpen">✖</span>
+      </button>
+      <nav :class="['nav', { 'is-active': menuOpen }]">
         <ul class="nav-links">
           <li><NuxtLink to="/">Ana Sayfa</NuxtLink></li>
           <li><NuxtLink to="/games">Oyunlar</NuxtLink></li>
@@ -23,6 +27,16 @@
 
 <script>
 export default {
+  data() {
+    return {
+      menuOpen: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    },
+  },
   head() {
     return {
       title: 'Casino X',
@@ -65,19 +79,29 @@ export default {
   font-weight: bold;
 }
 
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
 .nav {
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-end;
+  display: none;
+}
+
+.nav.is-active {
+  display: block;
 }
 
 .nav-links {
   list-style: none;
-  display: flex;
+  padding: 0;
 }
 
 .nav-links li {
-  margin-left: 20px;
+  margin: 10px 0;
 }
 
 .nav-links li a {
@@ -102,5 +126,26 @@ export default {
   color: white;
   text-align: center;
   padding: 10px;
+}
+
+/* Mobil Tasarım için Stil */
+@media (max-width: 600px) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #0c0c0c;
+    width: 100%;
+    padding: 20px;
+    border-top: 2px solid #ffcc00;
+    z-index: 1000;
+  }
+  
+  .nav-links li {
+    margin: 10px 0;
+    text-align: center;
+  }
 }
 </style>
