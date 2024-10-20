@@ -1,9 +1,9 @@
 <template>
   <div class="game-card" @click="navigateToGame">
     <img :src="game.image" alt="Game Image" class="game-image" />
-    <h3>{{ game.name }}</h3>
-    <p>{{ game.description }}</p>
-    <div class="play-button-container">
+    <div class="game-info">
+      <h3>{{ game.name }}</h3>
+      <p>{{ game.description }}</p>
       <NuxtLink :to="`/games/${game.id}`" class="play-button">Oyna</NuxtLink>
     </div>
   </div>
@@ -33,6 +33,9 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-card:hover {
@@ -42,11 +45,12 @@ export default {
 
 .game-image {
   width: 100%;
+  height: auto;
   border-radius: 10px;
 }
 
-.play-button-container {
-  margin-top: 10px;
+.game-info {
+  text-align: center;
 }
 
 .play-button {
@@ -56,6 +60,7 @@ export default {
   color: #0c0c0c;
   text-decoration: none;
   transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 .play-button:hover {
