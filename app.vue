@@ -1,69 +1,50 @@
 <template>
-  <div class="app-container">
-    <header class="header">
-      <h1 class="logo">Casino X</h1>
-      <button @click="toggleMenu" class="menu-toggle" aria-label="Toggle menu">
-        <span v-if="!menuOpen">☰</span>
-        <span v-if="menuOpen">✖</span>
-      </button>
-      <nav :class="['nav', { 'is-active': menuOpen }]">
-        <ul class="nav-links">
-          <li><NuxtLink to="/">Ana Sayfa</NuxtLink></li>
-          <li><NuxtLink to="/games">Oyunlar</NuxtLink></li>
-          <li><NuxtLink to="/about">Hakkında</NuxtLink></li>
-        </ul>
-      </nav>
-    </header>
-
+  <div>
+    <Header />
     <main class="main-content">
-      <NuxtPage />
+      <Nuxt />
     </main>
-
-    <footer class="footer">
-      <p>© 2024 Casino X. Tüm Hakları Saklıdır.</p>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+
 export default {
-  data() {
-    return {
-      menuOpen: false,
-    };
-  },
-  methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen;
-    },
-  },
-  head() {
-    return {
-      title: 'Casino X',
-      meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Casino oyunlarıyla eğlenceli bir deneyim yaşayın.' }
-      ]
-    }
+  components: {
+    Header,
+    Footer
   }
 }
 </script>
 
 <style scoped>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
+.main-content {
+  padding: 20px;
+  background: #f9f9f9;
+  min-height: calc(100vh - 120px);
 }
+</style>
+```
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+### `components/Header.vue`
+```vue
+<template>
+  <header class="header">
+    <h1 class="logo">Casino X</h1>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><NuxtLink to="/">Ana Sayfa</NuxtLink></li>
+        <li><NuxtLink to="/games">Oyunlar</NuxtLink></li>
+        <li><NuxtLink to="/about">Hakkında</NuxtLink></li>
+      </ul>
+    </nav>
+  </header>
+</template>
 
+<style scoped>
 .header {
   background-color: #0c0c0c;
   color: white;
@@ -71,28 +52,11 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .logo {
   font-size: 24px;
   font-weight: bold;
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.nav {
-  display: none;
-}
-
-.nav.is-active {
-  display: block;
 }
 
 .nav-links {
@@ -101,51 +65,35 @@ export default {
 }
 
 .nav-links li {
-  margin: 10px 0;
+  display: inline;
+  margin: 0 15px;
 }
 
 .nav-links li a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
   transition: color 0.3s;
 }
 
 .nav-links li a:hover {
   color: #ffcc00;
 }
+</style>
+```
 
-.main-content {
-  flex: 1;
-  padding: 20px;
-  background: #ffffff;
-}
+### `components/Footer.vue`
+```vue
+<template>
+  <footer class="footer">
+    <p>© 2024 Casino X. Tüm Hakları Saklıdır.</p>
+  </footer>
+</template>
 
+<style scoped>
 .footer {
   background-color: #0c0c0c;
   color: white;
   text-align: center;
   padding: 10px;
-}
-
-/* Mobil Tasarım için Stil */
-@media (max-width: 600px) {
-  .nav {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #0c0c0c;
-    width: 100%;
-    padding: 20px;
-    border-top: 2px solid #ffcc00;
-    z-index: 1000;
-  }
-  
-  .nav-links li {
-    margin: 10px 0;
-    text-align: center;
-  }
 }
 </style>
