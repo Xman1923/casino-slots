@@ -2,7 +2,7 @@
   <div class="app-container">
     <header class="header">
       <h1 class="logo">Casino X</h1>
-      <button @click="toggleMenu" class="menu-toggle">
+      <button @click="toggleMenu" class="menu-toggle" aria-label="Toggle menu">
         <span v-if="!menuOpen">☰</span>
         <span v-if="menuOpen">✖</span>
       </button>
