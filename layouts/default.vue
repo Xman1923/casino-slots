@@ -1,9 +1,7 @@
 <template>
   <div>
     <Header />
-    <main>
-      <Nuxt />
-    </main>
+    <NuxtPage />
     <Footer />
   </div>
 </template>
@@ -19,16 +17,3 @@ export default {
   },
 }
 </script>
-
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-}
-
-main {
-  min-height: calc(100vh - 100px); /* Header ve Footer yüksekliğinden kaçınma */
-  padding: 20px;
-}
-</style>
